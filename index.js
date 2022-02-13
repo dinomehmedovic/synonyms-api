@@ -1,12 +1,15 @@
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000;
+const dbo = require('./db.config');
 const synonymsRouter = require('./routes/synonyms.route');
 
+dbo.connectToDatabase();
 app.get('/', (req, res) => {
   res.json({'message': 'ok'});
 })
 
+/* Routes */
 app.use('/synonyms', synonymsRouter);
 
 /* Error handler middleware */
