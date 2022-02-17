@@ -4,7 +4,7 @@ const ApiError = require("../utils/api-error");
 module.exports = {
   validateSynonymFormat: function (synonym) {
     // Check if synonym word is empty or contains special characters or numbers
-    if (!/^[a-zA-Z]+$/.test(synonym)) {
+    if (!/^[a-zA-Z ]+$/.test(synonym)) {
       throw new ApiError(
         httpStatus.BAD_REQUEST,
         "Synonym can't be empty or contain numbers or special characters"
